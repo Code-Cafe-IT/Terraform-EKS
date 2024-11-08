@@ -61,6 +61,9 @@ resource "aws_eks_node_group" "cmc_private_node" {
     var.cmc-att-amazoneEKSWorkerNodePolicy,
     var.mc-att-AmazonEC2ContainerRegistryFullAccess,
    ]
+  tags = {
+    Name = "${var.project_name}-sg-eks"
+  }
 }
 
 data "tls_certificate" "eks" {
